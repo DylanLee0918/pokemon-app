@@ -3,6 +3,7 @@
  * @fork - creates a non-blocking call to a saga, allowing the parent saga to continue executing without waiting for the forked saga to finish
  */
 import { all, fork } from "redux-saga/effects";
+import { pokemonWatchers } from "./pokemon";
 
 /**
  * @function* - the asterisk makes this a generator function (required for sagas)
@@ -12,15 +13,5 @@ import { all, fork } from "redux-saga/effects";
  * @all - runs all sagas inside the array simultaneously
  */
 export function* rootSaga() {
-  yield all(
-    [
-      /**
-       * Add your sagas here
-       * example:
-       * fork(userSaga),
-       * fork(productsSaga),
-       * fork(cartSaga),
-       */
-    ].map(fork),
-  );
+  yield all([fork(pokemonWatchers)]);
 }
