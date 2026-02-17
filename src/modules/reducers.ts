@@ -3,17 +3,11 @@
  * into a single reducer function that manage the entire app state.
  */
 import { combineReducers } from "redux";
+import { pokemonReducer } from "./pokemon/reducers";
 
 /** Combines all individual reducers into a single root reducer */
 const reducers = combineReducers({
-  /**
-   * Add your reducers here
-   *
-   * example:
-   * user: userReducer,
-   * productts: productsReducer,
-   * cart: cartReducer,
-   */
+  pokemonList: pokemonReducer,
 });
 
 /**
